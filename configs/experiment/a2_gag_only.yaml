@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: softira
+
+run:
+  experiment_name: a2_gag_only
+
+algorithm:
+  enable_rde: false
+  alpha_rde: 0.0

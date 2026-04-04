@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: sac
+
+run:
+  experiment_name: o4_sac_single_q
+  track_overestimation: true
+
+algorithm:
+  use_double_q: false

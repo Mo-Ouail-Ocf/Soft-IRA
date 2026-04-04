@@ -1,0 +1,10 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: softira
+
+run:
+  experiment_name: a3_hard_q_ranking
+
+algorithm:
+  use_soft_q_ranking: false

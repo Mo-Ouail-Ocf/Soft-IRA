@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: softira
+
+run:
+  experiment_name: a5_frozen_beta_0_1
+
+algorithm:
+  beta_mode: fixed
+  fixed_beta: 0.1

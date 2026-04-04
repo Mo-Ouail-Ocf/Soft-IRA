@@ -1,0 +1,8 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: td3
+
+run:
+  experiment_name: b2_td3
+  start_timesteps: 25000

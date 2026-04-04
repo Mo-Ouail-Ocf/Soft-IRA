@@ -1,0 +1,11 @@
+name: alh
+hidden_dim: 64
+hypo_dim: 64
+batch_size: 256
+exploration_noise: 0.1
+discount: 0.99
+tau: 0.005
+policy_noise: 0.2
+noise_clip: 0.5
+policy_freq: 2
+mini_batch_size: null

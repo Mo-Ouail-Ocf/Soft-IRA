@@ -1,0 +1,13 @@
+name: sac
+hidden_dim: 256
+batch_size: 256
+exploration_noise: 0.0
+actor_lr: 0.0003
+critic_lr: 0.0003
+alpha_lr: 0.0003
+discount: 0.99
+tau: 0.005
+target_entropy: null
+alpha_init: 1.0
+auto_alpha: true
+use_double_q: true

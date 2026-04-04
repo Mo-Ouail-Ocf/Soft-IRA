@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: softira
+
+run:
+  experiment_name: o1_softira_double_q
+  track_overestimation: true
+
+algorithm:
+  use_double_q: true

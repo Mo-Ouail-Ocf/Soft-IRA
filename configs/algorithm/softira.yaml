@@ -1,0 +1,16 @@
+name: softira
+hidden_dim: 256
+batch_size: 256
+exploration_noise: 0.1
+actor_lr: 0.0003
+critic_lr: 0.0003
+alpha_lr: 0.0003
+beta_lr: 0.0003
+discount: 0.99
+tau: 0.005
+alpha_rde: 0.0005
+k: 10
+warmup_timestamps: 4000
+action_buffer_size: 200000
+d_max: null
+target_entropy: null

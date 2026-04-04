@@ -1,0 +1,8 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: ira
+
+run:
+  experiment_name: b3_ira
+  start_timesteps: 10000

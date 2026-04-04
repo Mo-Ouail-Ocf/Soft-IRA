@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: sac
+
+run:
+  experiment_name: o3_sac_double_q
+  track_overestimation: true
+
+algorithm:
+  use_double_q: true

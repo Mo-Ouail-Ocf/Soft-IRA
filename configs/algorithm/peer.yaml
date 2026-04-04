@@ -1,0 +1,9 @@
+name: peer
+hidden_dim: 256
+batch_size: 256
+exploration_noise: 0.1
+discount: 0.99
+tau: 0.005
+policy_noise: 0.2
+noise_clip: 0.5
+policy_freq: 2

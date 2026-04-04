@@ -1,0 +1,17 @@
+name: ira
+hidden_dim: 256
+batch_size: 256
+exploration_noise: 0.1
+actor_lr: 0.0003
+critic_lr: 0.0003
+discount: 0.99
+tau: 0.005
+policy_noise: 0.2
+noise_clip: 0.5
+policy_freq: 1
+alpha: 0.0005
+mu: 1.0
+k: 10
+warmup_timesteps: 4000
+action_buffer_size: 200000
+decay_mu: true

@@ -1,0 +1,37 @@
+defaults:
+  - _self_
+  - algorithm: softira
+  - experiment: base
+
+project:
+  name: IRA
+
+environment:
+  name: HalfCheetah-v5
+
+run:
+  seed: 42
+  device: cuda:0
+  experiment_name: default
+  total_timesteps: 1000000
+  start_timesteps: 4000
+  eval_frequency: 5000
+  eval_episodes: 10
+  replay_buffer_size: 1000000
+  track_overestimation: false
+
+paths:
+  output_root: outputs
+
+logging:
+  tensorboard: true
+  wandb: true
+  wandb_mode: offline
+  wandb_entity: null
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: ${paths.output_root}/hydra/${algorithm.name}_${environment.name}_seed_${run.seed}_${run.experiment_name}
+  output_subdir: null

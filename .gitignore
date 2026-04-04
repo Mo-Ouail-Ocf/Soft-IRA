@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments
+.venv/
+venv/
+.env
+
+# Tooling
+.vscode/
+.idea/
+
+# Experiment artifacts
+outputs/
+results/
+models/
+runs/
+wandb/
+main.log
+
+# Local caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Legacy snapshots
+legacy/
