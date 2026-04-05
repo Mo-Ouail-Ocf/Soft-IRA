@@ -9,10 +9,19 @@ from .ira_ddpg import IRA_DDPG
 from .peer import PEER
 from .sac import SAC
 from .softira import SoftIRA
+from .softira_beta_constant import SoftIRABetaConstant
+from .softira_beta_decay import SoftIRABetaDecay
 from .td3 import TD3
 
 
-def build_agent(algorithm_cfg, state_dim: int, action_dim: int, max_action: float, device: str):
+def build_agent(
+    algorithm_cfg,
+    state_dim: int,
+    action_dim: int,
+    max_action: float,
+    device: str,
+    total_timesteps: int | None = None,
+):
     params = OmegaConf.to_container(algorithm_cfg, resolve=True)
     assert isinstance(params, dict)
     name = str(params.pop("name")).lower()
@@ -20,6 +29,8 @@ def build_agent(algorithm_cfg, state_dim: int, action_dim: int, max_action: floa
     params["state_dim"] = state_dim
     params["action_dim"] = action_dim
     params["max_action"] = max_action
+    if total_timesteps is not None and name.startswith("softira"):
+        params["total_timesteps"] = int(total_timesteps)
 
     registry = {
         "ddpg": DDPG,
@@ -30,6 +41,8 @@ def build_agent(algorithm_cfg, state_dim: int, action_dim: int, max_action: floa
         "alh": memTD3,
         "sac": SAC,
         "softira": SoftIRA,
+        "softira_beta_constant": SoftIRABetaConstant,
+        "softira_beta_decay": SoftIRABetaDecay,
     }
     if name not in registry:
         raise ValueError(f"Unsupported algorithm '{algorithm_cfg.name}'.")

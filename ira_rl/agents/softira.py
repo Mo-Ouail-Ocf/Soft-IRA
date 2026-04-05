@@ -198,6 +198,13 @@ class SoftIRA(object):
     def beta(self):
         return self.log_beta.exp()
 
+    def _update_beta(self, deviation: torch.Tensor) -> float:
+        beta_loss = -(self.log_beta * (deviation - self.d_max))
+        self.beta_optimizer.zero_grad()
+        beta_loss.backward()
+        self.beta_optimizer.step()
+        return beta_loss.item()
+
     def select_action(self, state):
         """Deterministic mean action for evaluation (no noise)."""
         state = torch.FloatTensor(state.reshape(1, -1)).to(self.device)
@@ -353,11 +360,7 @@ class SoftIRA(object):
 
         if post_warmup:
             deviation = (a_bar.detach() - a_opt).pow(2).sum(dim=-1).mean()
-            beta_loss = -(self.log_beta * (deviation - self.d_max))
-            self.beta_optimizer.zero_grad()
-            beta_loss.backward()
-            self.beta_optimizer.step()
-            beta_loss_value = beta_loss.item()
+            beta_loss_value = self._update_beta(deviation)
 
         for p, tp in zip(self.critic.parameters(), self.critic_target.parameters()):
             tp.data.copy_(self.tau * p.data + (1 - self.tau) * tp.data)

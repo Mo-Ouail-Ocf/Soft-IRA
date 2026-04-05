@@ -104,7 +104,14 @@ def train(cfg) -> None:
     action_low = np.asarray(env.action_space.low, dtype=np.float32)
     action_high = np.asarray(env.action_space.high, dtype=np.float32)
 
-    agent = build_agent(cfg.algorithm, state_dim, action_dim, max_action, cfg.run.device)
+    agent = build_agent(
+        cfg.algorithm,
+        state_dim,
+        action_dim,
+        max_action,
+        cfg.run.device,
+        total_timesteps=int(cfg.run.total_timesteps),
+    )
     replay_buffer = ReplayBuffer(
         state_dim=state_dim,
         action_dim=action_dim,

@@ -1,12 +1,11 @@
 # @package _global_
 
 defaults:
-  - override /algorithm: softira
+  - override /algorithm: softira_beta_constant
 
 run:
   experiment_name: a1_rde_only
 
 algorithm:
   enable_gag: false
-  beta_mode: fixed
   fixed_beta: 0.0

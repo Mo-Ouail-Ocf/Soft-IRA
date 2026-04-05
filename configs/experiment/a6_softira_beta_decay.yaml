@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - override /algorithm: softira_beta_decay
+
+run:
+  experiment_name: a6_softira_beta_decay
+
+algorithm:
+  min_beta: 0.1
+  max_beta: 1
